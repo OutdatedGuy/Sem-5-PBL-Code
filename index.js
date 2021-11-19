@@ -1,4 +1,5 @@
 import express from "express";
+//const express = require("express");
 
 // My routes
 import { userRegistration } from "./routes/userRegistration.js";
