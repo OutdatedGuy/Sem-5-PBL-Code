@@ -1,0 +1,35 @@
+/* Full body loading animation */
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Language: css */
+/* Path: public\signup-user\assets\css\loading.css */
+/* Spinner */
+.loading .spinner {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border: 10px solid rgba(0, 0, 0, 0.2);
+  border-top: 10px solid #f39c12;
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+}
+
+/* Language: css */
+/* Path: public\signup-user\assets\css\loading.css */
+/* Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
