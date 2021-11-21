@@ -29,7 +29,7 @@
 .contact-clean h2 {
   margin-top: 5px;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 20px;
   margin-bottom: 36px;
   color: inherit;
 }
@@ -105,8 +105,5 @@
   margin-right: 14%;
   border-radius: 10.2px;
   box-shadow: 0 0 16px rgba(81, 203, 238, 1);
+  background-color: rgba(255,255,255,0.64);
 }
-
-#clear: hover {
-}
-

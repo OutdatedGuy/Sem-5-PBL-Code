@@ -1,0 +1,8 @@
+body {
+  /* background-color: #212529; */
+  background-image: linear-gradient(to right top, #2468cd, #6d67cf, #9b66cc, #c064c4, #df64b9, #ef68a9, #f96f9a, #ff798c, #ff887c, #ff9a6f, #ffae65, #ffc261);
+}
+
+#formdiv p{
+  color: black;
+}
