@@ -17,17 +17,22 @@ const registerUser = async () => {
     body: JSON.stringify(data),
   };
 
-  const response = await fetch("/api/userRegistration", arg);
-  const result = await response.json();
+  try {
+    const response = await fetch("/api/userRegistration", arg);
+    const result = await response.json();
+
+    if (result.status === "success") {
+      alert("User Registered Successfully!!!");
+      window.location.href = "../";
+    } else {
+      alert("User Registration Failed...");
+    }
+  } catch (error) {
+    console.log(error);
+    alert("User Registration Failed...");
+  }
 
   document.querySelector(".loadingContainer").classList.toggle("loading");
-
-  if (result.status === "success") {
-    alert("User registered successfully");
-    window.location.href = "../";
-  } else {
-    alert("User registration failed");
-  }
 };
 
 export { registerUser };
