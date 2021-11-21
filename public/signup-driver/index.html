@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>PBL - Driver Registration Page</title>
+    <title>TMS | Driver Registration</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap-theme.min.css">
@@ -28,7 +28,7 @@
     </div>
     <div class="container myForm" id="driver-form">
       <div>
-        <form>
+        <form id="driverForm">
           <div class="form-group">
             <div class="formdiv">
               <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
@@ -37,7 +37,7 @@
                   </p>
                 </div>
                 <div class="col-md-10 col-md-offset-1"><input required class="form-control" type="text"
-                    style="margin-left:0px;font-family:Roboto, sans-serif;" name="name" placeholder="Enter Full Name">
+                    style="margin-left:0px;font-family:Roboto, sans-serif;" name="fullName" placeholder="Enter Full Name">
                 </div>
               </div>
               <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
@@ -77,7 +77,7 @@
               </div>
               <div class="row btn-row">
                 <div class="col-md-12"><button class="btn btn-default btn-lg" type="reset">Clear </button></div>
-                <div class="col-md-12"><button class="btn btn-default btn-lg next-btn" type="button">Next</button></div>
+                <div class="col-md-12"><button class="btn btn-default btn-lg next-btn" type="submit">Next</button></div>
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@
     </div>
     <div class="container myForm" id="license-form">
       <div>
-        <form>
+        <form id="licenseForm">
           <div class="form-group">
             <div class="formdiv">
               <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
@@ -132,7 +132,7 @@
               <div class="row btn-row">
                 <div class="col-md-12"><button class="btn btn-default btn-lg" type="reset">Clear </button></div>
                 <div class="col-md-12"><button class="btn btn-default btn-lg prev-btn" type="button">Prev</button></div>
-                <div class="col-md-12"><button class="btn btn-default btn-lg next-btn" type="button">Next</button></div>
+                <div class="col-md-12"><button class="btn btn-default btn-lg next-btn" type="submit">Next</button></div>
               </div>
             </div>
           </div>
@@ -141,7 +141,7 @@
     </div>
     <div class="container myForm" id="login-form">
       <div>
-        <form>
+        <form id="loginForm">
           <div class="form-group">
             <div class="formdiv">
               <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
@@ -150,7 +150,7 @@
                   </p>
                 </div>
                 <div class="col-md-10 col-md-offset-1"><input required class="form-control" type="text"
-                    style="margin-left:0px;font-family:Roboto, sans-serif;" name="name" placeholder="Enter Username">
+                    style="margin-left:0px;font-family:Roboto, sans-serif;" name="userName" placeholder="Enter Username">
                 </div>
               </div>
               <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
@@ -168,7 +168,7 @@
                       Password*</strong></p>
                 </div>
                 <div class="col-md-10 col-md-offset-1"><input required class="form-control" type="password"
-                    style="margin-left:0px;font-family:Roboto, sans-serif;" name="password-check"
+                    style="margin-left:0px;font-family:Roboto, sans-serif;" name="confirmPassword"
                     placeholder="Enter Password"></div>
               </div>
               <div class="row btn-row">
@@ -182,12 +182,13 @@
       </div>
     </div>
 
-    <div class="loading">
+    <div class="loadingContainer">
       <div class="spinner"></div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="module" src="./assets/js/index.js"></script>
   </body>
 
 </html>
