@@ -4,41 +4,45 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>TMS | User Registration</title>
+    <title>PBL - User Registration Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="assets/css/Responsive-Form.css">
+    <link rel="stylesheet" href="assets/css/Steps-Progressbar.css">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
 
   <body>
     <div style="text-align: center; padding: 20px 0;">
-      <h1>User Registration</h1>
+      <h1>User Registration<br></h1>
     </div>
-    <div class="container">
+    <div class="steps-progressbar" style="display: flex;justify-content: center;">
+      <ul>
+        <li class="active">User Info</li>
+        <li>Login Info</li>
+      </ul>
+    </div>
+    <div class="container myForm" id="user-form">
       <div>
         <form>
           <div class="form-group">
-            <div id="formdiv">
+            <div class="formdiv">
               <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
                 <div class="col-md-8 col-md-offset-1">
-                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;">
-                    <strong>Full Name*</strong>
+                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;"><strong>Full Name*</strong>
                   </p>
                 </div>
-                <div class="col-md-10 col-md-offset-1"><input required class="form-control" type="text"
-                    style="margin-left:0px;font-family:Roboto, sans-serif;" name="fullName"
-                    placeholder="Enter Full Name"></div>
+                <div class="col-md-10 col-md-offset-1"><input class="form-control" type="text"
+                    style="margin-left:0px;font-family:Roboto, sans-serif;" name="name" placeholder="Enter Full Name">
+                </div>
               </div>
               <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
                 <div class="col-md-8 col-md-offset-1">
-                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;">
-                    <strong>Gender*</strong>
-                  </p>
+                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;"><strong>Gender*</strong></p>
                 </div>
-                <div class="col-md-10 col-md-offset-1"><select required class="form-control"
+                <div class="col-md-10 col-md-offset-1"><select class="form-control"
                     style="font-family:Roboto, sans-serif;" name="gender">
                     <option value="">Select Gender</option>
                     <option value="Male">Male</option>
@@ -47,68 +51,73 @@
               </div>
               <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
                 <div class="col-md-8 col-md-offset-1">
-                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;">
-                    <strong>Birth Date*</strong>
+                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;"><strong>Birth Date*</strong>
                   </p>
                 </div>
-                <div class="col-md-10 col-md-offset-1"><input required class="form-control"
+                <div class="col-md-10 col-md-offset-1"><input class="form-control"
                     style="font-family:Roboto, sans-serif;" name="birthDate" type="date"></div>
               </div>
               <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
                 <div class="col-md-8 col-md-offset-1">
-                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;">
-                    <strong>Email*</strong>
-                  </p>
+                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;"><strong>Email*</strong></p>
                 </div>
-                <div class="col-md-10 col-md-offset-1"><input required class="form-control" type="email"
+                <div class="col-md-10 col-md-offset-1"><input class="form-control" type="email"
                     style="margin-left:0px;font-family:Roboto, sans-serif;" name="email" placeholder="Enter Email">
                 </div>
               </div>
               <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
                 <div class="col-md-8 col-md-offset-1">
-                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;">
-                    <strong>Phone*</strong>
-                  </p>
+                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;"><strong>Phone*</strong></p>
                 </div>
-                <div class="col-md-10 col-md-offset-1"><input required class="form-control" type="tel"
+                <div class="col-md-10 col-md-offset-1"><input class="form-control" type="tel"
                     style="margin-left:0px;font-family:Roboto, sans-serif;" name="phone"
                     placeholder="Enter Phone Number"></div>
               </div>
+              <div class="row btn-row">
+                <div class="col-md-12"><button class="btn btn-default btn-lg" type="reset">Clear </button></div>
+                <div class="col-md-12"><button class="btn btn-default btn-lg" type="submit">Next</button></div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="container myForm" id="login-form">
+      <div>
+        <form>
+          <div class="form-group">
+            <div class="formdiv">
               <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
                 <div class="col-md-8 col-md-offset-1">
-                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;">
-                    <strong>Username*</strong>
+                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;"><strong>Username*</strong>
                   </p>
                 </div>
-                <div class="col-md-10 col-md-offset-1"><input required class="form-control" type="text"
-                    style="margin-left:0px;font-family:Roboto, sans-serif;" name="userName"
-                    placeholder="Enter Username"></div>
+                <div class="col-md-10 col-md-offset-1"><input class="form-control" type="text"
+                    style="margin-left:0px;font-family:Roboto, sans-serif;" name="name" placeholder="Enter Username">
+                </div>
               </div>
               <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
                 <div class="col-md-8 col-md-offset-1">
-                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;">
-                    <strong>Password*</strong>
+                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;"><strong>Password*</strong>
                   </p>
                 </div>
-                <div class="col-md-10 col-md-offset-1"><input required class="form-control" type="password"
+                <div class="col-md-10 col-md-offset-1"><input class="form-control" type="password"
                     style="margin-left:0px;font-family:Roboto, sans-serif;" name="password"
                     placeholder="Enter Password"></div>
               </div>
               <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
                 <div class="col-md-8 col-md-offset-1">
-                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;">
-                    <strong>Confirm Password*</strong>
-                  </p>
+                  <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;"><strong>Confirm
+                      Password*</strong></p>
                 </div>
-                <div class="col-md-10 col-md-offset-1"><input required class="form-control" type="password"
-                    style="margin-left:0px;font-family:Roboto, sans-serif;" name="confirmPassword"
+                <div class="col-md-10 col-md-offset-1"><input class="form-control" type="password"
+                    style="margin-left:0px;font-family:Roboto, sans-serif;" name="password-check"
                     placeholder="Enter Password"></div>
               </div>
-              <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
-                <div class="col-md-4 col-md-offset-4 col-xs-12 col-xs-offset-0"><button class="btn btn-default btn-lg"
-                    style="font-family:Roboto, sans-serif;" type="reset">Clear </button><button
-                    class="btn btn-default btn-lg" style="margin-left:16px;" id="submit-btn" type="submit">Submit
-                  </button></div>
+              <div class="row btn-row">
+                <div class="col-md-12"><button class="btn btn-default btn-lg" type="reset">Clear </button></div>
+                <div class="col-md-12"><button class="btn btn-default btn-lg" type="submit">Prev</button></div>
+                <div class="col-md-12"><button class="btn btn-default btn-lg" type="submit">Submit</button></div>
               </div>
             </div>
           </div>
@@ -117,7 +126,6 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="./assets/js/index.js"></script>
   </body>
 
 </html>
