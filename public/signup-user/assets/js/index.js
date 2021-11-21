@@ -25,8 +25,8 @@ form.addEventListener("submit", async (e) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
-  }
-  
+  };
+
   const response = await fetch("/api/userRegistration", arg);
   const result = await response.json();
 
