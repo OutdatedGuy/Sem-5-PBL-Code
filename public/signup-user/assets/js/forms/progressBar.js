@@ -7,7 +7,7 @@ const nextStep = () => {
     if (step.classList.contains("active")) {
       step.classList.remove("active");
       step.classList.add("previous");
-    } else if (flag) {
+    } else if (flag && !step.classList.contains("previous")) {
       step.classList.add("active");
       flag = false;
     }
