@@ -15,6 +15,7 @@ body {
     #ffae65,
     #ffc261
   );
+  min-height: 100vh;
 }
 
 #formdiv p {
