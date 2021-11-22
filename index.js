@@ -3,6 +3,7 @@ import express from "express";
 
 // My routes
 import { userRegistration } from "./routes/userRegistration.js";
+import { driverRegistration } from "./routes/driverRegistration.js";
 
 const app = express();
 
@@ -23,3 +24,4 @@ app.use(express.json());
 // });
 
 app.post("/api/userRegistration", userRegistration);
+app.post("/api/driverRegistration", driverRegistration);
