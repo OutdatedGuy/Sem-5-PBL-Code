@@ -1,17 +1,19 @@
+import { connection } from "../database.js";
+
 const userRegistration = (req, res) => {
   try {
     const { fullName, gender, birthDate, email, phone, userName, password } =
       req.body;
 
-    console.log({
-      fullName,
-      gender,
-      birthDate,
-      email,
-      phone,
-      userName,
-      password,
-    });
+    // console.log({
+    //   fullName,
+    //   gender,
+    //   birthDate,
+    //   email,
+    //   phone,
+    //   userName,
+    //   password,
+    // });
 
     if (
       !fullName ||
@@ -28,6 +30,18 @@ const userRegistration = (req, res) => {
         status: "failure",
       });
     }
+
+    const query = `insert into user(name,geneder,birth,mail,phone,username,password) values("${fullName}", "${gender}", "${birthDate}", "${email}", "${phone}", "${userName}", "${password}")`;
+    connection.query(query, function (error, results, fields) {
+      if (error)
+          throw error;
+
+      console.log("Success" + results);
+    
+      // results.forEach(result => {
+      //     console.log(result);
+      // });
+    });
 
     return res.send({
       message: "User registration successful",
