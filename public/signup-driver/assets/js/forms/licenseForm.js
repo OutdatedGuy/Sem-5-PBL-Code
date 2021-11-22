@@ -7,6 +7,16 @@ const setLicenseForm = () => {
   const licenseForm = document.querySelector("#licenseForm");
   const prevBtn = licenseForm.querySelector(".prev-btn");
 
+  // Set expiryDate form min date to tomorrow
+  const today = new Date();
+  const dd = String(today.getDate() + 1).padStart(2, "0");
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
+  const yyyy = today.getFullYear();
+  const tomorrowDate = yyyy + "-" + mm + "-" + dd;
+  licenseForm
+    .querySelector("input[name='expiryDate']")
+    .setAttribute("min", tomorrowDate);
+
   prevBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
