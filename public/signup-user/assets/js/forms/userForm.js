@@ -1,6 +1,6 @@
-let userInfo;
-
 import { nextStep } from "./progressBar.js";
+
+let userInfo;
 
 const setUserForm = () => {
   const userFormContainer = document.querySelector("#user-form");
