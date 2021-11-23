@@ -25,11 +25,11 @@ const registerUser = async () => {
       alert("User Registered Successfully!!!");
       window.location.href = "../";
     } else {
-      alert("User Registration Failed...");
+      alert(result.message);
     }
   } catch (error) {
     console.log(error);
-    alert("User Registration Failed...");
+    alert("User Registration Failed...\nPlease try again later!");
   }
 
   document.querySelector(".loadingContainer").classList.toggle("loading");

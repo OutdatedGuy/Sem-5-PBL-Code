@@ -27,11 +27,11 @@ const registerDriver = async () => {
       alert("Driver Registered Successfully!!!");
       window.location.href = "../";
     } else {
-      alert("Driver Registration Failed...");
+      alert(result.message);
     }
   } catch (error) {
     console.log(error);
-    alert("Driver Registration Failed...");
+    alert("Driver Registration Failed...\nPlease try again later!");
   }
 
   document.querySelector(".loadingContainer").classList.toggle("loading");
