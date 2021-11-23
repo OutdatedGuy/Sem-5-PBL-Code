@@ -21,9 +21,11 @@ const registerUser = async () => {
     const response = await fetch("/api/userRegistration", arg);
     const result = await response.json();
 
-    if (result.status === "success") {
+    if (result.code === 200) {
       alert("User Registered Successfully!!!");
-      window.location.href = "../";
+      window.location.replace("../");
+    } else if (result.code === 500) {
+      throw new Error(result.message);
     } else {
       alert(result.message);
     }
