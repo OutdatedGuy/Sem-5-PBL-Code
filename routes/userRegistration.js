@@ -5,16 +5,6 @@ const userRegistration = (req, res) => {
     const { fullName, gender, birthDate, email, phone, userName, password } =
       req.body;
 
-    // console.log({
-    //   fullName,
-    //   gender,
-    //   birthDate,
-    //   email,
-    //   phone,
-    //   userName,
-    //   password,
-    // });
-
     if (
       !fullName ||
       !gender ||
@@ -24,35 +14,32 @@ const userRegistration = (req, res) => {
       !userName ||
       !password
     ) {
-      console.log("Not all fields provided");
+      console.log("Not all fields provided!!!");
       return res.status(400).send({
-        message: "Not all fields provided",
+        message: "Not all fields provided!!!",
         status: "failure",
+        code: 400,
       });
     }
 
     const query = `insert into user(name,geneder,birth,mail,phone,username,password) values("${fullName}", "${gender}", "${birthDate}", "${email}", "${phone}", "${userName}", "${password}")`;
-    connection.query(query, function (error, results, fields) {
-      if (error)
-          throw error;
 
-      console.log("Success" + results);
-    
-      // results.forEach(result => {
-      //     console.log(result);
-      // });
+    connection.query(query, function (error, results) {
+      if (error) throw error;
+      console.log(results);
     });
 
     return res.send({
-      message: "User registration successful",
+      message: "User Registration Successful...",
       status: "success",
-      userId: 1,
+      code: 200,
     });
   } catch (err) {
     console.log(err);
     return res.status(500).send({
-      message: "User registration failed",
+      message: "User Registration Failed!!!",
       status: "failure",
+      code: 500,
     });
   }
 };
