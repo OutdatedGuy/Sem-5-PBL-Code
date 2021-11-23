@@ -13,15 +13,18 @@ const login = async (data) => {
     const response = await fetch("/api/login", arg);
     const result = await response.json();
 
-    if (result.status === "success") {
-      alert("Login Successfully!!!");
-      window.location.href = "../";
+    if (result.code === 200) {
+      const token = result.data.token;
+      const role = result.data.role;
+      window.location.replace(`../${role}/?token=${token}`);
+    } else if (result.code === 500) {
+      throw new Error(result.message);
     } else {
-      alert("Login Failed...");
+      alert(result.message);
     }
   } catch (error) {
     console.log(error);
-    alert("Login Failed...");
+    alert("Login Failed...\nPlease try again later!");
   }
 
   document.querySelector(".loadingContainer").classList.toggle("loading");

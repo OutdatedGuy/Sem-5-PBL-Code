@@ -23,15 +23,17 @@ const registerDriver = async () => {
     const response = await fetch("/api/driverRegistration", arg);
     const result = await response.json();
 
-    if (result.status === "success") {
-      alert("Driver Registered Successfully!!!");
-      window.location.href = "../";
+    if (result.code === 200) {
+      alert("Driver Registered Successfully...");
+      window.location.replace("../");
+    } else if (result.code === 500) {
+      throw new Error(result.message);
     } else {
       alert(result.message);
     }
   } catch (error) {
     console.log(error);
-    alert("Driver Registration Failed...\nPlease try again later!");
+    alert("Driver Registration Failed!!!\nPlease try again later!");
   }
 
   document.querySelector(".loadingContainer").classList.toggle("loading");

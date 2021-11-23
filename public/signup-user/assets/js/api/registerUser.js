@@ -22,7 +22,7 @@ const registerUser = async () => {
     const result = await response.json();
 
     if (result.code === 200) {
-      alert("User Registered Successfully!!!");
+      alert("User Registered Successfully...");
       window.location.replace("../");
     } else if (result.code === 500) {
       throw new Error(result.message);
@@ -31,7 +31,7 @@ const registerUser = async () => {
     }
   } catch (error) {
     console.log(error);
-    alert("User Registration Failed...\nPlease try again later!");
+    alert("User Registration Failed!!!\nPlease try again later!");
   }
 
   document.querySelector(".loadingContainer").classList.toggle("loading");
