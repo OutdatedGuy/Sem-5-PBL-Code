@@ -1,5 +1,5 @@
 import { registerUser } from "../api/registerUser.js";
-import { prevStep } from "./progressBar.js";
+import { prevStep } from "/assets/js/forms/progressBar.js";
 
 let loginInfo;
 

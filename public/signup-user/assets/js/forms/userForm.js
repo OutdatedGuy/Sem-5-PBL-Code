@@ -1,4 +1,4 @@
-import { nextStep } from "./progressBar.js";
+import { nextStep } from "/assets/js/forms/progressBar.js";
 
 let userInfo;
 

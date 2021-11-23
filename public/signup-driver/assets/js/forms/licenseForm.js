@@ -1,4 +1,4 @@
-import { nextStep, prevStep } from "./progressBar.js";
+import { nextStep, prevStep } from "/assets/js/forms/progressBar.js";
 
 let licenseInfo;
 

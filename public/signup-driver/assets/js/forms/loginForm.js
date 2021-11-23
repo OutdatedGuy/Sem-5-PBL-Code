@@ -1,5 +1,5 @@
 import { registerDriver } from "../api/registerDriver.js";
-import { prevStep } from "./progressBar.js";
+import { prevStep } from "/assets/js/forms/progressBar.js";
 
 let loginInfo;
 
