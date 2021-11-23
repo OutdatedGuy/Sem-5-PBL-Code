@@ -1,8 +1,7 @@
 import { registerDriver } from "../api/registerDriver.js";
+import { prevStep } from "./progressBar.js";
 
 let loginInfo;
-
-import { prevStep } from "./progressBar.js";
 
 const setLoginForm = () => {
   const loginFormContainer = document.querySelector("#login-form");

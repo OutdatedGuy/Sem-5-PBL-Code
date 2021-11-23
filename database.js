@@ -4,8 +4,8 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "root",
-  database: 'Taxi_management_system',
-  insecureAuth: true
+  database: "Taxi_management_system",
+  insecureAuth: true,
 });
 
 connection.connect(function (err) {
@@ -13,6 +13,4 @@ connection.connect(function (err) {
   console.log("Connected!");
 });
 
-
 export { connection };
-

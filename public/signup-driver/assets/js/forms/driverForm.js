@@ -1,6 +1,6 @@
-let driverInfo;
-
 import { nextStep } from "./progressBar.js";
+
+let driverInfo;
 
 const setDriverForm = () => {
   const driverFormContainer = document.querySelector("#driver-form");

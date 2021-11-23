@@ -1,6 +1,6 @@
-let licenseInfo;
-
 import { nextStep, prevStep } from "./progressBar.js";
+
+let licenseInfo;
 
 const setLicenseForm = () => {
   const licenseFormContainer = document.querySelector("#license-form");
