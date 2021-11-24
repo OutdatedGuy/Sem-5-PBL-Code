@@ -44,7 +44,7 @@
                       </div>
                       <div class="col-md-10 col-md-offset-1">
                         <input class="form-control" type="text" style="margin-left:0px;font-family:Roboto, sans-serif;"
-                          name="name" placeholder="Enter Name">
+                          name="fullName" placeholder="Enter Name">
                       </div>
                     </div>
                     <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
@@ -59,17 +59,6 @@
                           <option value="Male">Male</option>
                           <option value="Female">Female</option>
                         </select>
-                      </div>
-                    </div>
-                    <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
-                      <div class="col-md-8 col-md-offset-1">
-                        <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;">
-                          <strong>Birth Date</strong>
-                        </p>
-                      </div>
-                      <div class="col-md-10 col-md-offset-1">
-                        <input class="form-control" style="font-family:Roboto, sans-serif;" name="birthDate"
-                          type="date">
                       </div>
                     </div>
                     <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
@@ -133,7 +122,7 @@
                       </div>
                       <div class="col-md-10 col-md-offset-1">
                         <input class="form-control" type="text" style="margin-left:0px;font-family:Roboto, sans-serif;"
-                          name="name" placeholder="Enter Name">
+                          name="fullName" placeholder="Enter Name">
                       </div>
                     </div>
                     <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
@@ -148,17 +137,6 @@
                           <option value="Male">Male</option>
                           <option value="Female">Female</option>
                         </select>
-                      </div>
-                    </div>
-                    <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
-                      <div class="col-md-8 col-md-offset-1">
-                        <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;">
-                          <strong>Birth Date</strong>
-                        </p>
-                      </div>
-                      <div class="col-md-10 col-md-offset-1">
-                        <input class="form-control" style="font-family:Roboto, sans-serif;" name="birthDate"
-                          type="date">
                       </div>
                     </div>
                     <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
@@ -312,11 +290,11 @@
                     <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
                       <div class="col-md-8 col-md-offset-1">
                         <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;">
-                          <strong>Custom Query</strong>
+                          <strong>Custom Query*</strong>
                         </p>
                       </div>
                       <div class="col-md-10 col-md-offset-1">
-                        <input class="form-control" type="text" style="margin-left:0px;font-family:Roboto, sans-serif;"
+                        <input required class="form-control" type="text" style="margin-left:0px;font-family:Roboto, sans-serif;"
                           name="customQuery" placeholder="Enter you custom query to be executed">
                       </div>
                       <div class="row btn-row">
@@ -342,7 +320,7 @@
           <div class="col">
             <div class="card shadow">
               <div class="card-header py-2">
-                <p class="lead text-info m-0"><strong>My Data</strong></p>
+                <p class="lead text-info m-0"><strong>Oueried Data</strong></p>
               </div>
               <div class="card-body">
                 <div class="table-responsive table mb-0 pt-3 pe-2">
@@ -353,6 +331,7 @@
                         <th>No data available</th>
                       </tr>
                     </thead>
+                    <tbody></tbody>
                   </table>
                 </div>
               </div>
@@ -379,6 +358,7 @@
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
     <script src="assets/js/DataTable---Fully-BSS-Editable.js"></script>
+    <script type="module" src="./assets/js/index.js"></script>
   </body>
 
 </html>
