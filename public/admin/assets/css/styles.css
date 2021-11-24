@@ -8,6 +8,11 @@ th {
   padding-bottom: 40px;
 }
 
+.mydatatable,
+.dataTables_scrollHeadInner {
+  width: 100% !important;
+}
+
 .nav-tabs > li > a {
   color: #000;
 }
