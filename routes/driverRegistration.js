@@ -50,7 +50,13 @@ const driverRegistration = (req, res) => {
           code: 403,
         });
       } else {
-        const query = `insert into driver(name, gender, birth, mail, phone,  license_number, license_expiry, address, city, pincode, userName, password) values("${fullName}", "${gender}", "${birthDate}", "${email}", "${phone}", "${licenseNumber}", "${expiryDate}", "${address}", "${city}", "${pincode}", "${userName}", "${password}")`;
+        
+        const birthday = new Date(birthDate);
+        const ageDifMs = Date.now() - birthday.getTime();
+        const ageDate = new Date(ageDifMs); // miliseconds from epoch
+        const age = Math.floor(Math.abs(ageDate.getUTCFullYear() - 1970));
+
+        const query = `insert into driver(name, gender, birth, age, mail, phone,  license_number, license_expiry, address, city, pincode, userName, password) values("${fullName}", "${gender}", "${birthDate}", "${age}", "${email}", "${phone}", "${licenseNumber}", "${expiryDate}", "${address}", "${city}", "${pincode}", "${userName}", "${password}")`;
 
         connection.query(query, function (error, results) {
           if (error) throw new Error(error);

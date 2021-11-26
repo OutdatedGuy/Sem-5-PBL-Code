@@ -33,7 +33,12 @@ const userRegistration = (req, res) => {
           code: 403,
         });
       } else {
-        const query = `insert into user(name,geneder,birth,mail,phone,username,password) values("${fullName}", "${gender}", "${birthDate}", "${email}", "${phone}", "${userName}", "${password}")`;
+        const birthday = new Date(birthDate);
+        const ageDifMs = Date.now() - birthday.getTime();
+        const ageDate = new Date(ageDifMs); // miliseconds from epoch
+        const age = Math.floor(Math.abs(ageDate.getUTCFullYear() - 1970));
+
+        const query = `insert into user(name,geneder,birth,age,mail,phone,username,password) values("${fullName}", "${gender}", "${birthDate}", "${age}", "${email}", "${phone}", "${userName}", "${password}")`;
 
         connection.query(query, function (error, results) {
           if (error) throw new Error(error);
