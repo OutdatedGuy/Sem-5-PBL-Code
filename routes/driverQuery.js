@@ -51,7 +51,7 @@ const driverQuery = (req, res) => {
   catch (err) {
     console.log(err);
     return res.status(500).send({
-      message: "User Registration Failed!!!",
+      message: "Something went Wrong!!!",
       status: "failure",
       code: 500,
     });
