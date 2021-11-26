@@ -7,7 +7,7 @@ const userQuery = (req, res) => {
     const { fullName, gender, birthDateR1, birthDateR2, ageR1, ageR2 } =
       req.body;
 
-    let query = `select name, geneder as gender, birth, age, mail, phone from user where `;
+    let query = `select name, gender, birth, age, mail, phone from user where `;
     query += fullName ? `name like "%${fullName}%" and ` : "";
     query += gender ? `gender="${gender}" and ` : "";
     query += birthDateR1 ? `birth>="${birthDateR1}" and ` : "";
