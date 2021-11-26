@@ -22,17 +22,30 @@ const userRegistration = (req, res) => {
       });
     }
 
-    const query = `insert into user(name,geneder,birth,mail,phone,username,password) values("${fullName}", "${gender}", "${birthDate}", "${email}", "${phone}", "${userName}", "${password}")`;
+    connection.query(`select * from user where username = "${userName}"`, function (error, results) {
+      if (error) throw new Error(error);
+      // console.log(results.length);
 
-    connection.query(query, function (error, results) {
-      if (error) throw error;
-      console.log(results);
-    });
+      if (results.length > 0) {
+        return res.status(403).send({
+          message: "Username Already Taken!!!\nUse a different one.",
+          status: "failure",
+          code: 403,
+        });
+      } else {
+        const query = `insert into user(name,geneder,birth,mail,phone,username,password) values("${fullName}", "${gender}", "${birthDate}", "${email}", "${phone}", "${userName}", "${password}")`;
 
-    return res.send({
-      message: "User Registration Successful...",
-      status: "success",
-      code: 200,
+        connection.query(query, function (error, results) {
+          if (error) throw new Error(error);
+          // console.log(results);
+
+          return res.send({
+            message: "User Registration Successful...",
+            status: "success",
+            code: 200,
+          });
+        });
+      }
     });
   } catch (err) {
     console.log(err);
