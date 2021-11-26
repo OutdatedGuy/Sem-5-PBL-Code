@@ -1,9 +1,14 @@
 import express from "express";
+
 //const express = require("express");
 
 // My routes
-import { userRegistration } from "./routes/userRegistration.js";
-import { driverRegistration } from "./routes/driverRegistration.js";
+import { userRegistration } from "./routes/registration/userRegistration.js";
+import { driverRegistration } from "./routes/registration/driverRegistration.js";
+import { userdriverlogin } from "./routes/userdriverlogin.js";
+import { userQuery } from "./routes/queries/userQuery.js";
+import { driverQuery } from "./routes/queries/driverQuery.js";
+import { customQuery } from "./routes/queries/customQuery.js";
 
 const app = express();
 
@@ -23,5 +28,65 @@ app.use(express.json());
 //   next();
 // });
 
+// registration APIs
 app.post("/api/userRegistration", userRegistration);
 app.post("/api/driverRegistration", driverRegistration);
+
+// login APIs
+app.post("/api/login", userdriverlogin);
+
+//admin query
+app.post("/api/query/user", userQuery);
+app.post("/api/query/driver", driverQuery);
+app.post("/api/query/custom", customQuery);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// app.post("/api/adminLogin", (req, res) => {
+//   console.log(req.body);
+//   // admin
+//   /*
+//   username pass token
+//   vinay 123kit 16484
+//   om 132
+//   */
+//   res.send({
+//     status: "success",
+//     code: 200,
+//     token: "16484"
+//   })
+// });
+// app.post("/api/query/user", (req, res) => {
+//   console.log(req.body);
+//   // admin
+//   /*
+//   username pass token
+//   vinay 123kit 16484
+//   om 132
+//   */
+//   res.send({
+//     status: "success",
+//     code: 200,
+//     token: "16484"
+//   })
+// });

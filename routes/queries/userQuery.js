@@ -1,21 +1,19 @@
-import { connection } from "../database.js";
+import { connection } from "../../database.js";
 
-const driverQuery = (req, res) => {
+const userQuery = (req, res) => {
   console.log(req.body);
 
   try {
-    const { fullName, gender, birthDateR1, birthDateR2, ageR1, ageR2, city, pincode } =
+    const { fullName, gender, birthDateR1, birthDateR2, ageR1, ageR2 } =
       req.body;
 
-    let query = `select name, gender, birth, age, mail, phone, city, pincode from driver where `;
+    let query = `select name, geneder as gender, birth, age, mail, phone from user where `;
     query += fullName ? `name like "%${fullName}%" and ` : "";
     query += gender ? `gender="${gender}" and ` : "";
     query += birthDateR1 ? `birth>="${birthDateR1}" and ` : "";
     query += birthDateR2 ? `birth<="${birthDateR2}" and ` : "";
     query += ageR1 ? `age>="${Math.floor(ageR1)}" and ` : "";
     query += ageR2 ? `age<="${Math.floor(ageR2)}" and ` : "";
-    query += city ? `city="${city}" and ` : "";
-    query += pincode ? `pincode="${pincode}" and ` : "";
 
     if (query.endsWith("and "))
       query = query.substr(0, query.length - 4);
@@ -59,4 +57,4 @@ const driverQuery = (req, res) => {
 
 };
 
-export { driverQuery };
+export { userQuery };

@@ -1,4 +1,4 @@
-import { connection } from "../database.js";
+import { connection } from "../../database.js";
 
 const customQuery = (req, res) => {
   console.log(req.body);
