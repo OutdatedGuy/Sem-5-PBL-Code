@@ -39,7 +39,8 @@ const driverRegistration = (req, res) => {
       });
     }
 
-    connection.query(`select * from driver where username = "${userName}"`, function (error, results) {
+    const checkQuery = `select * from driver where username = "${userName}"`;
+    connection.query(checkQuery, function (error, results) {
       if (error) throw new Error(error);
       // console.log(results.length);
 
@@ -50,7 +51,6 @@ const driverRegistration = (req, res) => {
           code: 403,
         });
       } else {
-        
         const birthday = new Date(birthDate);
         const ageDifMs = Date.now() - birthday.getTime();
         const ageDate = new Date(ageDifMs); // miliseconds from epoch
@@ -58,9 +58,8 @@ const driverRegistration = (req, res) => {
 
         const query = `insert into driver(name, gender, birth, age, mail, phone,  license_number, license_expiry, address, city, pincode, userName, password) values("${fullName}", "${gender}", "${birthDate}", "${age}", "${email}", "${phone}", "${licenseNumber}", "${expiryDate}", "${address}", "${city}", "${pincode}", "${userName}", "${password}")`;
 
-        connection.query(query, function (error, results) {
+        connection.query(query, function (error) {
           if (error) throw new Error(error);
-          // console.log(results);
 
           return res.send({
             message: "Driver Registration Successful...",
