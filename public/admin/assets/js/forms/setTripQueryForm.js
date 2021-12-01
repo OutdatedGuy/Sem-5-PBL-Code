@@ -11,8 +11,8 @@ const setTripQueryForm = () => {
       place2: tripQueryForm.place2.value,
       startTime1: tripQueryForm.startTime1.value,
       startTime2: tripQueryForm.startTime2.value,
-      reachTime1: tripQueryForm.reachTime1.value,
-      reachTime2: tripQueryForm.reachTime2.value,
+      // reachTime1: tripQueryForm.reachTime1.value,
+      // reachTime2: tripQueryForm.reachTime2.value,
     };
 
     getQueryData(tripQueryInfo, "trip");
