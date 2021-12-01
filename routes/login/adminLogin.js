@@ -2,7 +2,7 @@ import { connection } from "../../database.js";
 import { randomBytes } from "crypto";
 
 const adminLogin = (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
 
   try {
     const { userName, password } = req.body;

@@ -1,7 +1,7 @@
 import { connection } from "../../database.js";
 
 const driverQuery = (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
 
   try {
     const { fullName, gender, birthDateR1, birthDateR2, ageR1, ageR2, city, pincode } =

@@ -1,7 +1,7 @@
 import { connection } from "../../database.js";
 
 const adminCredentials = (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
 
   try {
     const { token } = req.body;
