@@ -18,7 +18,8 @@ const bookTrip = async (data) => {
     const result = await response.json();
 
     if (result.code === 200) {
-      alert("Trip Booking Successful...");
+      const tripId = result.data.tripId;
+      alert(`Trip Booking Successful...\nYour Trip ID is ${tripId}\n\nSave for future reference`);
       document.querySelector("#bookingForm").reset();
     } else if (result.code === 500) {
       throw new Error(result.message);
