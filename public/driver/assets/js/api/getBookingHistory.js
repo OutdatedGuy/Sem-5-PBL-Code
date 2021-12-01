@@ -18,7 +18,7 @@ const getBookingHistory = async () => {
   };
 
   try {
-    const response = await fetch(`/api/trip/history/user`, arg);
+    const response = await fetch(`/api/trip/history/driver`, arg);
     const result = await response.json();
 
     if (result.code === 200 && result.data) {

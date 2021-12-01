@@ -1,0 +1,64 @@
+td,
+th {
+  border-left: 1px solid grey;
+}
+
+#dataTable {
+  display: none;
+  padding-bottom: 40px;
+}
+
+.mydatatable,
+.dataTables_scrollHeadInner {
+  width: 100% !important;
+}
+
+.nav-tabs > li > a {
+  color: #000;
+}
+
+body {
+  /*background-color: #212529;*/
+  background-image: linear-gradient(
+    to right top,
+    #2468cd,
+    #6d67cf,
+    #9b66cc,
+    #c064c4,
+    #df64b9,
+    #ef68a9,
+    #f96f9a,
+    #ff798c,
+    #ff887c,
+    #ff9a6f,
+    #ffae65,
+    #ffc261
+  );
+  min-height: 100vh;
+}
+
+#formdiv p {
+  color: black;
+}
+
+.row.btn-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  padding: 25px 0;
+  place-items: center;
+}
+
+.row.btn-row .col-md-12 {
+  text-align: center;
+}
+
+.row.btn-row .col-md-12 button {
+  border-radius: 5px;
+  box-shadow: 0 0 16px rgba(201, 23, 81, 1);
+}
+
+.myForm {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
