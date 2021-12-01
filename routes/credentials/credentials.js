@@ -1,20 +1,28 @@
 import { connection } from "../../database.js";
 
-const adminCredentials = (req, res) => {
+const credentials = (req, res) => {
   // console.log(req.body);
+  const roles = ["admin", "user", "driver"];
 
   try {
     const { token } = req.body;
+    const role = req.params.role;
 
-    if (!token) {
+    if (!token || !role) {
       return res.status(400).send({
         status: "failure",
         message: "Token is required",
         code: 400,
       });
+    } else if (!roles.includes(role)) {
+      return res.status(403).send({
+        status: "failure",
+        message: "Invalid role!!!",
+        code: 403,
+      });
     }
 
-    const query = `select * from admin where token = '${token}'`;
+    const query = `select * from ${role} where token = '${token}'`;
     connection.query(query, function (error, results) {
       if (error) throw error;
       // console.log({results});
@@ -29,7 +37,7 @@ const adminCredentials = (req, res) => {
           status: "success",
           code: 200,
           data: {
-            adminName: results[0].fullName,
+            userName: results[0].fullName,
           },
         });
       }
@@ -44,4 +52,4 @@ const adminCredentials = (req, res) => {
   }
 };
 
-export { adminCredentials };
+export { credentials };

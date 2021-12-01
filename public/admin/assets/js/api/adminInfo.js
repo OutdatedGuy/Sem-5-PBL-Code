@@ -21,7 +21,7 @@
       const result = await response.json();
       if (result.code === 200) {
         document.querySelector(".admin-name").innerText +=
-          result.data.adminName;
+          result.data.userName;
       } else {
         window.location.replace("../admin-login/");
       }

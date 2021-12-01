@@ -9,9 +9,10 @@ import { userQuery } from "./routes/queries/userQuery.js";
 import { driverQuery } from "./routes/queries/driverQuery.js";
 import { customQuery } from "./routes/queries/customQuery.js";
 // Credentials
-import { adminCredentials } from "./routes/credentials/adminCredentials.js";
+import { credentials } from "./routes/credentials/credentials.js";
 // Login
 import { login } from "./routes/login/login.js";
+// Session End
 import { sessionEnd } from "./routes/session-end/sessionEnd.js";
 
 const app = express();
@@ -41,4 +42,4 @@ app.post("/api/query/driver", driverQuery);
 app.post("/api/query/custom", customQuery);
 
 // credentials APIs
-app.post("/api/credentials/admin", adminCredentials);
+app.post("/api/credentials/:role", credentials);
