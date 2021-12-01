@@ -30,18 +30,18 @@ app.use(express.json());
 // });
 
 // registration APIs
-app.post("/api/userRegistration", userRegistration);
-app.post("/api/driverRegistration", driverRegistration);
+app.post("/api/registration/user", userRegistration);
+app.post("/api/registration/driver", driverRegistration);
 
 // login APIs
 // app.post("/api/login", userdriverlogin);
 
-// admin query
+// admin query APIs
 app.post("/api/query/user", userQuery);
 app.post("/api/query/driver", driverQuery);
 app.post("/api/query/custom", customQuery);
 
-// credentials
+// credentials APIs
 app.post("/api/credentials/admin", adminCredentials);
 
 

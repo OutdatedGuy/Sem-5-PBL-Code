@@ -18,7 +18,7 @@ const registerUser = async () => {
   };
 
   try {
-    const response = await fetch("/api/userRegistration", arg);
+    const response = await fetch("/api/registration/user", arg);
     const result = await response.json();
 
     if (result.code === 200) {

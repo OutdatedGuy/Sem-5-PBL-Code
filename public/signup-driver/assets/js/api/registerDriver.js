@@ -20,7 +20,7 @@ const registerDriver = async () => {
   };
 
   try {
-    const response = await fetch("/api/driverRegistration", arg);
+    const response = await fetch("/api/registration/driver", arg);
     const result = await response.json();
 
     if (result.code === 200) {

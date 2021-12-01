@@ -10,7 +10,7 @@ const adminLogin = async (data) => {
   };
 
   try {
-    const response = await fetch("/api/adminLogin", arg);
+    const response = await fetch("/api/login/admin", arg);
     const result = await response.json();
 
     if (result.code === 200) {
