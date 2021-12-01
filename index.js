@@ -5,10 +5,11 @@ import express from "express";
 // My routes
 import { userRegistration } from "./routes/registration/userRegistration.js";
 import { driverRegistration } from "./routes/registration/driverRegistration.js";
-import { userdriverlogin } from "./routes/userdriverlogin.js";
+// import { userdriverlogin } from "./routes/userdriverlogin.js";
 import { userQuery } from "./routes/queries/userQuery.js";
 import { driverQuery } from "./routes/queries/driverQuery.js";
 import { customQuery } from "./routes/queries/customQuery.js";
+import { adminCredentials } from "./routes/credentials/adminCredentials.js";
 
 const app = express();
 
@@ -33,13 +34,15 @@ app.post("/api/userRegistration", userRegistration);
 app.post("/api/driverRegistration", driverRegistration);
 
 // login APIs
-app.post("/api/login", userdriverlogin);
+// app.post("/api/login", userdriverlogin);
 
-//admin query
+// admin query
 app.post("/api/query/user", userQuery);
 app.post("/api/query/driver", driverQuery);
 app.post("/api/query/custom", customQuery);
 
+// credentials
+app.post("/api/credentials/admin", adminCredentials);
 
 
 
