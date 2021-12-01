@@ -12,7 +12,7 @@ import { customQuery } from "./routes/queries/customQuery.js";
 import { adminCredentials } from "./routes/credentials/adminCredentials.js";
 // Login
 import { login } from "./routes/login/login.js";
-import { adminSessionEnd } from "./routes/session-end/adminSessionEnd.js";
+import { sessionEnd } from "./routes/session-end/sessionEnd.js";
 
 const app = express();
 
@@ -33,7 +33,7 @@ app.post("/api/registration/driver", driverRegistration);
 app.post("/api/login/:role", login);
 
 // session-end APIs
-app.post("/api/session-end/admin", adminSessionEnd);
+app.post("/api/session-end/:role", sessionEnd);
 
 // admin query APIs
 app.post("/api/query/user", userQuery);
