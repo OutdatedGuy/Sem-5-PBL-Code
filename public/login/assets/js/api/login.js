@@ -10,7 +10,7 @@ const login = async (data) => {
   };
 
   try {
-    const response = await fetch("/api/login/user-driver", arg);
+    const response = await fetch(`/api/login/${data.role}`, arg);
     const result = await response.json();
 
     if (result.code === 200) {

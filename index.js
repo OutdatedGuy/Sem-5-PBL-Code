@@ -11,7 +11,7 @@ import { customQuery } from "./routes/queries/customQuery.js";
 // Credentials
 import { adminCredentials } from "./routes/credentials/adminCredentials.js";
 // Login
-import { adminLogin } from "./routes/login/adminLogin.js";
+import { login } from "./routes/login/login.js";
 import { adminSessionEnd } from "./routes/session-end/adminSessionEnd.js";
 
 const app = express();
@@ -30,7 +30,7 @@ app.post("/api/registration/user", userRegistration);
 app.post("/api/registration/driver", driverRegistration);
 
 // login APIs
-app.post("/api/login/admin", adminLogin);
+app.post("/api/login/:role", login);
 
 // session-end APIs
 app.post("/api/session-end/admin", adminSessionEnd);

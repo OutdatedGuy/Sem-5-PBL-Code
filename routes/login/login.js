@@ -1,21 +1,29 @@
 import { connection } from "../../database.js";
 import { randomBytes } from "crypto";
 
-const adminLogin = (req, res) => {
+const login = (req, res) => {
   // console.log(req.body);
+  const roles = ["admin", "user", "driver"];
 
   try {
     const { userName, password } = req.body;
+    const role = req.params.role;
 
-    if (!userName || !password) {
+    if (!userName || !password || !role) {
       return res.status(403).send({
         status: "failure",
-        message: "All fields are required",
+        message: "All fields are required!!!",
+        code: 403,
+      });
+    } else if (!roles.includes(role)) {
+      return res.status(403).send({
+        status: "failure",
+        message: "Invalid role!!!",
         code: 403,
       });
     }
 
-    const query = `select * from admin where userName = '${userName}' and password = '${password}'`;
+    const query = `select * from ${role} where userName = '${userName}' and password = '${password}'`;
     connection.query(query, function (error, results) {
       if (error) throw error;
       // console.log({results});
@@ -27,7 +35,7 @@ const adminLogin = (req, res) => {
         });
       } else {
         const token = randomBytes(8).toString("hex");
-        const updateQuery = `update admin set token = '${token}' where userName = '${userName}'`;
+        const updateQuery = `update ${role} set token = '${token}' where userName = '${userName}'`;
         connection.query(updateQuery, function (error) {
           if (error) throw error;
 
@@ -51,4 +59,4 @@ const adminLogin = (req, res) => {
   }
 };
 
-export { adminLogin };
+export { login };
