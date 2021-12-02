@@ -14,6 +14,8 @@ import { credentials } from "./routes/credentials/credentials.js";
 import { login } from "./routes/login/login.js";
 // Session End
 import { sessionEnd } from "./routes/session-end/sessionEnd.js";
+// Trip Function
+import { bookingTrip } from "./routes/trip/bookingTrip.js";
 
 const app = express();
 
@@ -43,3 +45,6 @@ app.post("/api/query/custom", customQuery);
 
 // credentials APIs
 app.post("/api/credentials/:role", credentials);
+
+// trip APIs
+app.post("/api/trip/booking", bookingTrip);
