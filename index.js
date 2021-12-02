@@ -16,6 +16,7 @@ import { login } from "./routes/login/login.js";
 import { sessionEnd } from "./routes/session-end/sessionEnd.js";
 // Trip Function
 import { bookingTrip } from "./routes/trip/bookingTrip.js";
+import { tripHistory } from "./routes/trip/tripHistory.js";
 
 const app = express();
 
@@ -48,3 +49,4 @@ app.post("/api/credentials/:role", credentials);
 
 // trip APIs
 app.post("/api/trip/booking", bookingTrip);
+app.post("/api/trip/history/:role", tripHistory);
