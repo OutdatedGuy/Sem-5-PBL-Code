@@ -19,7 +19,16 @@ const bookTrip = async (data) => {
 
     if (result.code === 200) {
       const tripId = result.data.tripId;
-      alert(`Trip Booking Successful...\nYour Trip ID is ${tripId}\n\nSave for future reference`);
+      const fare = result.data.fare;
+
+      alert(
+        `Trip Booking Successful...
+        
+Your Trip FARE will be ₹${fare}
+Your Trip ID is ${tripId}
+
+Note for future reference`
+      );
       document.querySelector("#bookingForm").reset();
     } else if (result.code === 500) {
       throw new Error(result.message);
