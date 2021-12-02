@@ -39,7 +39,7 @@ const driverRegistration = (req, res) => {
       });
     }
 
-    const checkQuery = `select * from driver where username = "${userName}"`;
+    const checkQuery = `select * from driver where userName = "${userName}"`;
     connection.query(checkQuery, function (error, results) {
       if (error) throw new Error(error);
       // console.log(results.length);

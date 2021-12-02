@@ -37,7 +37,7 @@ const credentials = (req, res) => {
           status: "success",
           code: 200,
           data: {
-            userName: results[0].fullName,
+            userName: results[0].name,
           },
         });
       }
