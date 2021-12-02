@@ -41,7 +41,7 @@ const bookingTrip = (req, res) => {
       } else {
         const user_id = results1[0].user_id;
 
-        const km = (Math.random() * 100) + 1;
+        const km = (Math.random() * 45) + 5;
         const fare = Math.round(km * (Math.floor(ac) ? 30 : 20));
 
         const insertQuery = `insert into trip(user_id, startPlace, endPlace, startTime, ac, fare, status) values(${user_id}, "${startPlace}", "${endPlace}", "${startTime}", ${ac}, ${fare}, 0)`;
