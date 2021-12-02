@@ -1,6 +1,4 @@
-import { fillTable } from "../fillTable.js";
-
-const getBookingHistory = async () => {
+const acceptTrip = async (data) => {
   document.querySelector(".loadingContainer").classList.toggle("loading");
 
   // get params from url
@@ -12,17 +10,16 @@ const getBookingHistory = async () => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      token: token,
-    }),
+    body: JSON.stringify({ ...data, token }),
   };
 
   try {
-    const response = await fetch(`/api/trip/history/driver`, arg);
+    const response = await fetch(`/api/trip/accepting`, arg);
     const result = await response.json();
 
-    if (result.code === 200 && result.data) {
-      fillTable(result.data, 2);
+    if (result.code === 200) {
+      alert("Trip accepted successfully...");
+      document.querySelector("#acceptTripForm").reset();
     } else if (result.code === 500) {
       throw new Error(result.message);
     } else {
@@ -36,4 +33,4 @@ const getBookingHistory = async () => {
   document.querySelector(".loadingContainer").classList.toggle("loading");
 };
 
-export { getBookingHistory };
+export { acceptTrip };

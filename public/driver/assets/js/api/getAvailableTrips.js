@@ -1,6 +1,6 @@
 import { fillTable } from "../fillTable.js";
 
-const getBookingHistory = async () => {
+const getAvailableTrips = async () => {
   document.querySelector(".loadingContainer").classList.toggle("loading");
 
   // get params from url
@@ -18,11 +18,11 @@ const getBookingHistory = async () => {
   };
 
   try {
-    const response = await fetch(`/api/trip/history/driver`, arg);
+    const response = await fetch(`/api/trip/available`, arg);
     const result = await response.json();
 
     if (result.code === 200 && result.data) {
-      fillTable(result.data, 2);
+      fillTable(result.data, 1);
     } else if (result.code === 500) {
       throw new Error(result.message);
     } else {
@@ -30,10 +30,10 @@ const getBookingHistory = async () => {
     }
   } catch (error) {
     console.log(error);
-    alert("Something went wrong!!!\nPlease try again later!");
+    alert("Error while loading available trips!!!\nPlease try again later!");
   }
 
   document.querySelector(".loadingContainer").classList.toggle("loading");
 };
 
-export { getBookingHistory };
+export { getAvailableTrips };

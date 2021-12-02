@@ -3,7 +3,12 @@ th {
   border-left: 1px solid grey;
 }
 
-#dataTable {
+th {
+  text-transform: capitalize;
+}
+
+#dataTable1,
+#dataTable2 {
   display: none;
   padding-bottom: 40px;
 }

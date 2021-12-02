@@ -20,6 +20,7 @@ const setBookingForm = () => {
       startPlace: bookingForm.startPlace.value,
       endPlace: bookingForm.endPlace.value,
       startTime: bookingForm.startTime.value,
+      ac: bookingForm.ac.value,
     };
 
     bookTrip(bookingInfo);
