@@ -1,10 +1,10 @@
 import { setTable } from "./DataTable---Fully-BSS-Editable.js";
 
-const fillTable = (data) => {
-  $(".mydatatable").DataTable().destroy();
+const fillTable = (data, table) => {
+  $(`#mydatatable${table}`).DataTable().destroy();
 
-  document.getElementById("dataTable").style.display = "block";
-  const myTable = document.getElementById("mydatatable");
+  document.getElementById(`dataTable${table}`).style.display = "block";
+  const myTable = document.getElementById(`mydatatable${table}`);
 
   const myTableHead = myTable.getElementsByTagName("thead")[0];
   const myTableBody = myTable.getElementsByTagName("tbody")[0];
@@ -31,7 +31,7 @@ const fillTable = (data) => {
     myTableBody.innerHTML = "<tr><td>No data</td></tr>";
   }
 
-  setTable();
+  setTable(table);
   myTable.focus();
 };
 
