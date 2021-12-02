@@ -11,6 +11,7 @@ const sessionEnd = (req, res) => {
     if (!token || !role) {
       return res.status(400).json({
         status: "error",
+        code: 400,
         message: "Token is required",
       });
     } else if (!roles.includes(role)) {
