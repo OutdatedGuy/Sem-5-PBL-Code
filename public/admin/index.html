@@ -88,12 +88,12 @@
                       <div class="col-md-10 col-md-offset-1">
                         <input class="form-control" type="number"
                           style="margin-left:0px;font-family:Roboto, sans-serif;" name="ageR1"
-                          placeholder="Starting Age Range">
+                          placeholder="Enter min Age">
                       </div>
                       <div class="col-md-10 col-md-offset-1">
                         <input class="form-control" type="number"
                           style="margin-left:0px;font-family:Roboto, sans-serif;" name="ageR2"
-                          placeholder="Ending Age Range">
+                          placeholder="Enter max Age">
                       </div>
                     </div>
                     <div class="row btn-row">
@@ -166,12 +166,12 @@
                       <div class="col-md-10 col-md-offset-1">
                         <input class="form-control" type="number"
                           style="margin-left:0px;font-family:Roboto, sans-serif;" name="ageR1"
-                          placeholder="Starting Age Range">
+                          placeholder="Enter min Age">
                       </div>
                       <div class="col-md-10 col-md-offset-1">
                         <input class="form-control" type="number"
                           style="margin-left:0px;font-family:Roboto, sans-serif;" name="ageR2"
-                          placeholder="Ending Age Range">
+                          placeholder="Enter max Age">
                       </div>
                     </div>
                     <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
@@ -254,19 +254,49 @@
                           style="margin-left:0px;font-family:Roboto, sans-serif;" name="startTime2">
                       </div>
                     </div>
-                    <div class="row" style="display:none;margin-right:0px;margin-left:0px;padding-top:18px;">
+                    <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
                       <div class="col-md-8 col-md-offset-1">
                         <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;">
-                          <strong>Reached Time Range</strong>
+                          <strong>AC</strong>
                         </p>
                       </div>
                       <div class="col-md-10 col-md-offset-1">
-                        <input class="form-control" type="datetime-local"
-                          style="margin-left:0px;font-family:Roboto, sans-serif;" name="reachTime1">
+                        <select class="form-control" style="font-family:Roboto, sans-serif;" name="ac">
+                          <option value="">Select</option>
+                          <option value="0">Non-AC</option>
+                          <option value="1">AC</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
+                      <div class="col-md-8 col-md-offset-1">
+                        <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;">
+                          <strong>Status</strong>
+                        </p>
                       </div>
                       <div class="col-md-10 col-md-offset-1">
-                        <input class="form-control" type="datetime-local"
-                          style="margin-left:0px;font-family:Roboto, sans-serif;" name="reachTime2">
+                        <select class="form-control" style="font-family:Roboto, sans-serif;" name="status">
+                          <option value="">Select</option>
+                          <option value="0">Not Completed</option>
+                          <option value="1">Completed</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row" style="margin-right:0px;margin-left:0px;padding-top:18px;">
+                      <div class="col-md-8 col-md-offset-1">
+                        <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:18px;">
+                          <strong>Fare Range</strong>
+                        </p>
+                      </div>
+                      <div class="col-md-10 col-md-offset-1">
+                        <input class="form-control" type="number"
+                          style="margin-left:0px;font-family:Roboto, sans-serif;" placeholder="Enter min Fare"
+                          name="fare1">
+                      </div>
+                      <div class="col-md-10 col-md-offset-1">
+                        <input class="form-control" type="number"
+                          style="margin-left:0px;font-family:Roboto, sans-serif;" placeholder="Enter max Fare"
+                          name="fare2">
                       </div>
                     </div>
                     <div class="row btn-row">
