@@ -7,6 +7,7 @@ import { driverRegistration } from "./routes/registration/driverRegistration.js"
 // Queries
 import { userQuery } from "./routes/queries/userQuery.js";
 import { driverQuery } from "./routes/queries/driverQuery.js";
+import { tripQuery } from "./routes/queries/tripQuery.js";
 import { customQuery } from "./routes/queries/customQuery.js";
 // Credentials
 import { credentials } from "./routes/credentials/credentials.js";
@@ -44,6 +45,7 @@ app.post("/api/session-end/:role", sessionEnd);
 // admin query APIs
 app.post("/api/query/user", userQuery);
 app.post("/api/query/driver", driverQuery);
+app.post("/api/query/trip", tripQuery);
 app.post("/api/query/custom", customQuery);
 
 // credentials APIs
