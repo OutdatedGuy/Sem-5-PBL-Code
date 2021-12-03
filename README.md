@@ -84,6 +84,7 @@ A simple Taxi Management System.
 - Admin Queries:
   - User: `/api/query/user`
   - Driver: `/api/query/driver`
+  - Trip: `/api/query/trip`
   - Custom: `/api/query/custom`
 
 - Trip:
