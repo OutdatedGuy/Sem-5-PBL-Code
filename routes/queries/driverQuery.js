@@ -7,7 +7,7 @@ const driverQuery = (req, res) => {
     const { fullName, gender, birthDateR1, birthDateR2, ageR1, ageR2, city, pincode } =
       req.body;
 
-    let query = `select name, gender, birth, age, mail, phone, city, pincode from driver where `;
+    let query = `select name, gender, birth, age, mail, phone, license_number, city, pincode, t_earn as totalEarning from driver where `;
     query += fullName ? `name like "%${fullName}%" and ` : "";
     query += gender ? `gender="${gender}" and ` : "";
     query += birthDateR1 ? `birth>="${birthDateR1}" and ` : "";
