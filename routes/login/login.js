@@ -33,6 +33,12 @@ const login = (req, res) => {
           message: "Invalid credentials",
           code: 400,
         });
+      } else if (results[0].token !== null) {
+        return res.send({
+          status: "failure",
+          message: "Already logged in!!!",
+          code: 400,
+        });
       } else {
         const token = randomBytes(8).toString("hex");
         const updateQuery = `update ${role} set token = '${token}' where userName = '${userName}'`;
