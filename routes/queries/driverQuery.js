@@ -37,6 +37,13 @@ const driverQuery = (req, res) => {
           }
         });
       } else {
+        results = results.map((result) => {
+          return {
+            ...result,
+            totalEarning: `₹${result.totalEarning}`
+          }
+        });
+
         return res.send({
           status: "success",
           code: 200,

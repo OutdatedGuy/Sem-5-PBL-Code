@@ -40,8 +40,10 @@ const tripQuery = (req, res) => {
             ...result,
             ac: result.ac ? "AC" : "Non-AC",
             status: result.status ? "Completed" : "Not Completed",
+            fare: `₹${result.fare}`
           }
-        })
+        });
+
         return res.send({
           status: "success",
           code: 200,
