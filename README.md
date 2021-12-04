@@ -36,14 +36,19 @@ A simple Taxi Management System.
 ### Database Schema:
 
 - user:
+![image](https://user-images.githubusercontent.com/66154908/144718389-f33644cc-db92-4d83-a423-b0d74cbdbaa1.png)
 
 - driver:
+![image](https://user-images.githubusercontent.com/66154908/144718410-7401f1c3-b3fe-479d-9226-2d8a9b7a2e53.png)
 
-- admin:
+- admin:  
+![image](https://user-images.githubusercontent.com/66154908/144718433-06abc683-b65e-48e0-836f-f31179d2c751.png)
 
 - taxi:
+![image](https://user-images.githubusercontent.com/66154908/144718471-236f7daa-728e-499c-b0ec-fcaf733f969d.png)
 
 - trip:
+![image](https://user-images.githubusercontent.com/66154908/144718450-6b083140-6987-4ae8-9ad5-c32c16ca65c9.png)
 
 ### Dependencies:
 
