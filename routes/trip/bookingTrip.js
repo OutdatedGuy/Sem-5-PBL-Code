@@ -52,6 +52,8 @@ const bookingTrip = (req, res) => {
 
           const data = {
             tripId: results2.insertId,
+            km,
+            ac,
             fare,
           };
 

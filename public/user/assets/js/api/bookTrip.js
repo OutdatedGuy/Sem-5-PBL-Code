@@ -20,14 +20,20 @@ const bookTrip = async (data) => {
     if (result.code === 200) {
       const tripId = result.data.tripId;
       const fare = result.data.fare;
+      const km = result.data.km;
+      const ac = result.data.ac;
+      const charges = (Math.floor(ac) ? 30 : 20);
+      const taxiType = result.data.ac ? "AC" : "Non-AC";
 
       alert(
         `Trip Booking Successful...
         
-Your Trip FARE will be ₹${fare}
-Your Trip ID is ${tripId}
+        Your Trip ID is ${tripId}
+        Trip Total distance is ${km} Km
+        Charges for per Km are ${charges} as Taxi type is ${taxiType}
+        Your Trip FARE will be ₹${fare}
 
-Note for future reference`
+        Note Trip ID for future reference`
       );
       document.querySelector("#bookingForm").reset();
     } else if (result.code === 500) {
