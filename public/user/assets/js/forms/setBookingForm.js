@@ -23,6 +23,17 @@ const setBookingForm = () => {
       ac: bookingForm.ac.value,
     };
 
+    const confirmation = confirm(`
+Are you sure you want to book a trip for:
+
+Start Place: ${bookingInfo.startPlace}
+Destination: ${bookingInfo.endPlace}
+Start Time: ${bookingInfo.startTime.replace("T", " ")}
+Taxi Type: ${bookingInfo.ac == 1 ? "AC for ₹30/km" : "Non-AC for ₹20/km"}
+`);
+
+    if(!confirmation) return;
+
     bookTrip(bookingInfo);
   });
 };
