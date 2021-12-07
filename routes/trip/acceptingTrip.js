@@ -47,7 +47,7 @@ const acceptingTrip = (req, res) => {
 
               connection.query(statusQuery, function (error, results3) {        //Query to get current status of Trip
                 if (error) throw new Error(error);
-                console.log(results3);
+                // console.log(results3);
 
                 const taxitypeQuery = `select ac from taxi where driver_id = ${results1[0].driver_id}`;
                 connection.query(taxitypeQuery, function (error, results4) {      //Query for getting taxi type 

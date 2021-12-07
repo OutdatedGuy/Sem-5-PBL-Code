@@ -14,7 +14,7 @@ const customQuery = (req, res) => {
       });
     }
 
-    console.log(customQuery);
+    // console.log(customQuery);
 
     connection.query(customQuery, function (error, results) {
       if (error) throw error;
