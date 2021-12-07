@@ -23,20 +23,26 @@ const login = (req, res) => {
       });
     }
 
-    const query = `select * from ${role} where userName = '${userName}' and password = '${password}'`;
+    const query = `select * from ${role} where userName = '${userName}'`;
     connection.query(query, function (error, results) {
       if (error) throw error;
       // console.log({results});
       if (results.length === 0) {
         return res.send({
           status: "failure",
-          message: "Invalid credentials",
+          message: "This Username does NOT Exists!!!",
           code: 400,
         });
       } else if (results[0].token !== null) {
         return res.send({
           status: "failure",
           message: "Already logged in!!!",
+          code: 400,
+        });
+      } else if (results[0].password !== password) {
+        return res.send({
+          status: "failure",
+          message: "Invalid Credentials!!!",
           code: 400,
         });
       } else {
