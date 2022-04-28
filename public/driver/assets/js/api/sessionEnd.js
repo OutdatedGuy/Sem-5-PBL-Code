@@ -7,6 +7,7 @@ window.onbeforeunload = function () {
     headers: {
       "Content-Type": "application/json",
     },
+    keepalive: true,
     body: JSON.stringify({
       token: token,
     }),
