@@ -1,4 +1,4 @@
-window.onunload = function () {
+window.onbeforeunload = function () {
   // get params from url
   const urlParams = new URLSearchParams(window.location.search);
   const token = urlParams.get("token");
