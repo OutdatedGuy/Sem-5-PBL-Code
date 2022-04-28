@@ -1,5 +1,8 @@
 import express from "express";
 
+// DB
+import { connection, createDB } from "./database.js";
+
 // ROUTES FUCNTIONS
 // Registration
 import { userRegistration } from "./routes/registration/userRegistration.js";
@@ -26,6 +29,8 @@ const app = express();
 const port = process.env.PORT || 1412;
 app.listen(port, async () => {
   console.log(`Server listening on port http://127.0.0.1:${port}`);
+  await connection.connect();
+  createDB(connection);
 });
 
 app.use(express.static("public"));

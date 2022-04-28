@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 import mysql from "mysql2/promise";
+import fs from "fs/promises";
 
 const connection = await mysql.createConnection({
   host: process.env.DB_HOST,
@@ -10,19 +11,19 @@ const connection = await mysql.createConnection({
   insecureAuth: true,
 });
 
-// /**
-//  * @param {mysql.Connection} con The connection to the database
-//  */
-// const createDB = async (con) => {
-//   console.log("Connected!");
-//   const files = await fs.readdir("./Taxi_Management_DB/");
-//   for (const file of files) {
-//     const data = await fs.readFile(`./Taxi_Management_DB/${file}`, "utf8");
-//     await con.query(data);
-//   }
-//   console.log("Done!");
-//   await con.end();
-//   console.log("Disconnected!");
-// };
+/**
+ * @param {mysql.Connection} con The connection to the database
+ */
+const createDB = async (con) => {
+  console.log("Connected!");
+  const files = await fs.readdir("./Taxi_Management_DB/");
+  for (const file of files) {
+    const data = await fs.readFile(`./Taxi_Management_DB/${file}`, "utf8");
+    await con.query(data);
+  }
+  console.log("Done!");
+  await con.end();
+  console.log("Disconnected!");
+};
 
-export { connection };
+export { connection, createDB };
