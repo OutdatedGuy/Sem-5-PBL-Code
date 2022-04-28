@@ -19,10 +19,10 @@
 -- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
+-- DROP TABLE IF EXISTS `admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `admin` (
+CREATE TABLE [IF NOT EXISTS] `admin` (
   `userName` varchar(40) DEFAULT NULL,
   `password` varchar(40) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
