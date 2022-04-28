@@ -3,13 +3,20 @@ dotenv.config();
 import mysql from "mysql2/promise";
 import fs from "fs/promises";
 
-const connection = await mysql.createConnection({
+const db_config = {
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+  connectTimeout: 10000,
   insecureAuth: true,
-});
+};
+
+let connection = await mysql.createConnection(db_config);
+
+setInterval(async () => {
+  connection = await mysql.createConnection(db_config);
+}, 8000);
 
 /**
  * @param {mysql.Connection} con The connection to the database
