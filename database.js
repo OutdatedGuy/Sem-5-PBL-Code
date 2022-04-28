@@ -15,15 +15,12 @@ const connection = await mysql.createConnection({
  * @param {mysql.Connection} con The connection to the database
  */
 const createDB = async (con) => {
-  console.log("Connected!");
   const files = await fs.readdir("./Taxi_Management_DB/");
   for (const file of files) {
     const data = await fs.readFile(`./Taxi_Management_DB/${file}`, "utf8");
     await con.query(data);
   }
   console.log("Done!");
-  await con.end();
-  console.log("Disconnected!");
 };
 
 export { connection, createDB };
