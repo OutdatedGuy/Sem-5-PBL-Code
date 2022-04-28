@@ -1,6 +1,7 @@
-import mysql from "mysql";
 import dotenv from "dotenv";
 dotenv.config();
+import mysql from "mysql";
+import fs from "fs";
 
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -13,6 +14,19 @@ const connection = mysql.createConnection({
 connection.connect(function (err) {
   if (err) throw err;
   console.log("Connected!");
+  fs.readdir("./Taxi_Management_DB/", (err, files) => {
+    if (err) throw err;
+
+    files.forEach(file => {
+      fs.readFile(`./Taxi_Management_DB/${file}`, "utf8", (err, data) => {
+        if (err) throw err;
+        connection.query(data, (err, result) => {
+          if (err) throw err;
+          console.log(result);
+        });
+      });
+    });
+  });
 });
 
 export { connection };
