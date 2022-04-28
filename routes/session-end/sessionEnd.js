@@ -1,6 +1,6 @@
 import { connection } from "../../database.js";
 
-const sessionEnd = (req, res) => {
+const sessionEnd = async (req, res) => {
   // console.log(req.body);
   const roles = ["admin", "user", "driver"];
 
@@ -23,14 +23,12 @@ const sessionEnd = (req, res) => {
     }
 
     const updateQuery = `update ${role} set token = ${null} where token = '${token}'`;
-    connection.query(updateQuery, function (error) {
-      if (error) throw error;
-
-      return res.send({
-        status: "success",
-        code: 200,
-        message: "Session ended successfully",
-      });
+    await connection.connect();
+    await connection.query(updateQuery);
+    return res.send({
+      status: "success",
+      code: 200,
+      message: "Session ended successfully",
     });
   } catch (err) {
     console.log(err);

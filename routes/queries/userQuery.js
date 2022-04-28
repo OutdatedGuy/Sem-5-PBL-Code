@@ -1,6 +1,6 @@
 import { connection } from "../../database.js";
 
-const userQuery = (req, res) => {
+const userQuery = async (req, res) => {
   // console.log(req.body);
 
   try {
@@ -22,29 +22,28 @@ const userQuery = (req, res) => {
 
     console.log(query);
 
-    connection.query(query, function (error, results) {
-      if (error) throw error;
-      // console.log({results});
-      if (results.length == 0) {
-        return res.send({
-          status: "success",
-          code: 200,
-          data: {
-            properties: [],
-            values: [],
-          }
-        });
-      } else {
-        return res.send({
-          status: "success",
-          code: 200,
-          data: {
-            properties: Object.getOwnPropertyNames(results[0]),
-            values: results,
-          }
-        });
-      }
-    });
+    await connection.connect();
+    const [results] = await connection.query(query);
+
+    if (results.length == 0) {
+      return res.send({
+        status: "success",
+        code: 200,
+        data: {
+          properties: [],
+          values: [],
+        },
+      });
+    } else {
+      return res.send({
+        status: "success",
+        code: 200,
+        data: {
+          properties: Object.getOwnPropertyNames(results[0]),
+          values: results,
+        },
+      });
+    }
   }
   catch (err) {
     console.log(err);
@@ -54,7 +53,6 @@ const userQuery = (req, res) => {
       code: 500,
     });
   }
-
 };
 
 export { userQuery };

@@ -1,6 +1,6 @@
 import { connection } from "../../database.js";
 
-const customQuery = (req, res) => {
+const customQuery = async (req, res) => {
   // console.log(req.body);
 
   try {
@@ -16,29 +16,28 @@ const customQuery = (req, res) => {
 
     // console.log(customQuery);
 
-    connection.query(customQuery, function (error, results) {
-      if (error) throw error;
-      // console.log({results});
-      if (results.length == 0) {
-        return res.send({
-          status: "success",
-          code: 200,
-          data: {
-            properties: [],
-            values: [],
-          },
-        });
-      } else {
-        return res.send({
-          status: "success",
-          code: 200,
-          data: {
-            properties: Object.getOwnPropertyNames(results[0]),
-            values: results,
-          },
-        });
-      }
-    });
+    await connection.connect();
+    const [results] = await connection.query(customQuery);
+
+    if (results.length == 0) {
+      return res.send({
+        status: "success",
+        code: 200,
+        data: {
+          properties: [],
+          values: [],
+        },
+      });
+    } else {
+      return res.send({
+        status: "success",
+        code: 200,
+        data: {
+          properties: Object.getOwnPropertyNames(results[0]),
+          values: results,
+        },
+      });
+    }
   } catch (err) {
     console.log(err);
     return res.status(500).send({

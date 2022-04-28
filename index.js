@@ -24,7 +24,7 @@ import { acceptingTrip } from "./routes/trip/acceptingTrip.js";
 const app = express();
 
 const port = process.env.PORT || 1412;
-app.listen(port, () => {
+app.listen(port, async () => {
   console.log(`Server listening on port http://127.0.0.1:${port}`);
 });
 

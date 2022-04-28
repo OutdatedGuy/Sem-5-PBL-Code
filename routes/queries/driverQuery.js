@@ -1,6 +1,6 @@
 import { connection } from "../../database.js";
 
-const driverQuery = (req, res) => {
+const driverQuery = async (req, res) => {
   // console.log(req.body);
 
   try {
@@ -24,36 +24,35 @@ const driverQuery = (req, res) => {
 
     console.log(query);
 
-    connection.query(query, function (error, results) {
-      if (error) throw error;
-      // console.log({results});
-      if (results.length == 0) {
-        return res.send({
-          status: "success",
-          code: 200,
-          data: {
-            properties: [],
-            values: [],
-          }
-        });
-      } else {
-        results = results.map((result) => {
-          return {
-            ...result,
-            totalEarning: `₹${result.totalEarning}`
-          }
-        });
+    await connection.connect();
+    const [results] = await connection.query(query);
 
-        return res.send({
-          status: "success",
-          code: 200,
-          data: {
-            properties: Object.getOwnPropertyNames(results[0]),
-            values: results,
-          }
-        });
-      }
-    });
+    if (results.length == 0) {
+      return res.send({
+        status: "success",
+        code: 200,
+        data: {
+          properties: [],
+          values: [],
+        },
+      });
+    } else {
+      const results2 = results.map((result) => {
+        return {
+          ...result,
+          totalEarning: `₹${result.totalEarning}`,
+        };
+      });
+
+      return res.send({
+        status: "success",
+        code: 200,
+        data: {
+          properties: Object.getOwnPropertyNames(results2[0]),
+          values: results2,
+        },
+      });
+    }
   }
   catch (err) {
     console.log(err);
@@ -63,7 +62,6 @@ const driverQuery = (req, res) => {
       code: 500,
     });
   }
-
 };
 
 export { driverQuery };

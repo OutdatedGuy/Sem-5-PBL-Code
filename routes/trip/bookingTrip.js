@@ -1,6 +1,6 @@
 import { connection } from "../../database.js";
 
-const bookingTrip = (req, res) => {
+const bookingTrip = async (req, res) => {
   // console.log(req.body);
 
   try {
@@ -29,43 +29,39 @@ const bookingTrip = (req, res) => {
 
     //userID
     const query = `select user_id from user where token = '${token}'`;
-    connection.query(query, function (error, results1) {
-      if (error) throw error;
-      // console.log({ results });
-      if (results1.length === 0) {
-        return res.send({
-          status: "failure",
-          code: 400,
-          message: "Invalid token",
-        });
-      } else {
-        const user_id = results1[0].user_id;
+    await connection.connect();
+    const [results1] = await connection.query(query);
 
-        const km = (Math.random() * 45) + 5;
-        const fare = Math.round(km * (Math.floor(ac) ? 30 : 20));
+    if (results1.length === 0) {
+      return res.send({
+        status: "failure",
+        code: 400,
+        message: "Invalid token",
+      });
+    } else {
+      const user_id = results1[0].user_id;
 
-        const insertQuery = `insert into trip(user_id, startPlace, endPlace, startTime, ac, fare, status) values(${user_id}, "${startPlace}", "${endPlace}", "${startTime}", ${ac}, ${fare}, 0)`;
+      const km = (Math.random() * 45) + 5;
+      const fare = Math.round(km * (Math.floor(ac) ? 30 : 20));
 
-        connection.query(insertQuery, function (error, results2) {
-          if (error) throw new Error(error);
-          // console.log(results2);
+      const insertQuery = `insert into trip(user_id, startPlace, endPlace, startTime, ac, fare, status) values(${user_id}, "${startPlace}", "${endPlace}", "${startTime}", ${ac}, ${fare}, 0)`;
 
-          const data = {
-            tripId: results2.insertId,
-            km,
-            ac,
-            fare,
-          };
+      const [results2] = await connection.query(insertQuery);
 
-          return res.send({
-            message: "Trip Booked Successful...",
-            status: "success",
-            code: 200,
-            data,
-          });
-        });
-      }
-    });
+      const data = {
+        tripId: results2.insertId,
+        km,
+        ac,
+        fare,
+      };
+
+      return res.send({
+        message: "Trip Booked Successful...",
+        status: "success",
+        code: 200,
+        data,
+      });
+    }
   }
   catch (err) {
     console.log(err);

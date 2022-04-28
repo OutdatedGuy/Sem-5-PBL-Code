@@ -1,6 +1,6 @@
 import { connection } from "../../database.js";
 
-const credentials = (req, res) => {
+const credentials = async (req, res) => {
   // console.log(req.body);
   const roles = ["admin", "user", "driver"];
 
@@ -23,24 +23,21 @@ const credentials = (req, res) => {
     }
 
     const query = `select * from ${role} where token = '${token}'`;
-    connection.query(query, function (error, results) {
-      if (error) throw error;
-      // console.log({results});
-      if (results.length === 0) {
-        return res.send({
-          status: "failure",
-          code: 400,
-          message: "Invalid token",
-        });
-      } else {
-        return res.send({
-          status: "success",
-          code: 200,
-          data: {
-            userName: results[0].name,
-          },
-        });
-      }
+    await connection.connect();
+    const [results] = await connection.query(query);
+    if (results.length === 0) {
+      return res.send({
+        status: "failure",
+        code: 400,
+        message: "Invalid token",
+      });
+    }
+    return res.send({
+      status: "success",
+      code: 200,
+      data: {
+        userName: results[0].name,
+      },
     });
   } catch (err) {
     console.log(err);
