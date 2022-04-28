@@ -19,10 +19,10 @@
 -- Table structure for table `driver`
 --
 
-DROP TABLE IF EXISTS `driver`;
+-- DROP TABLE IF EXISTS `driver`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `driver` (
+CREATE TABLE [IF NOT EXISTS] `driver` (
   `driver_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(40) DEFAULT NULL,
   `gender` varchar(20) DEFAULT NULL,
