@@ -68,6 +68,7 @@ const bookingTrip = async (req, res) => {
     return res.status(500).send({
       message: "Something went Wrong!!!",
       status: "failure",
+      error: err,
       code: 500,
     });
   }
