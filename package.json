@@ -1,7 +1,7 @@
 {
-  "name": "pbl-taxi",
+  "name": "sem-5-pbl",
   "version": "1.0.0",
-  "description": "PBL project of group no. 4 of semester 5",
+  "description": "PBL project of group no. 4 in 5th semester",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
